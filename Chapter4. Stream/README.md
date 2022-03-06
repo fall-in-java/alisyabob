@@ -85,3 +85,16 @@ filter(dish -> dish.getCalories() < 400)
 ```
 - 병렬처리를 할 수 있다.
 - 최적화를 달성할 수 있다.
+
+
+### 스트림 연산
+```java
+List<String> lowCaloricDishesName = menu.stream().
+filter(dish -> dish.getCalories() < 400)
+.map(Dish::getName)
+.limit(3)
+.collect(toList());
+```
+- filter, map, limit는 서로 연결되어 파이프라인을 형성한다.
+- filter, map, limit : 중간연산
+- collect(toList()) : 스트림을 리스트로 반환
